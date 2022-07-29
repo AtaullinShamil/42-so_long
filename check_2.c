@@ -1,12 +1,10 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   check_2.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ntojamur <ntojamur@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 20:29:33 by shamil            #+#    #+#             */
-/*   Updated: 2022/04/04 14:42:15 by ntojamur         ###   ########.fr       */
+/*   check_2.c                                                                */
+/*                                                                            */
+/*   By: Ataullin Shamil                                                      */
+/*                                                                            */
+/*   Created: 022/04/02                                                       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +23,12 @@ int	ft_check_map_symbols(char **map)
 		{
 			if (map[y][x] != '0' && map[y][x] != '1' && map[y][x] != 'C' && \
 			map[y][x] != 'E' && map[y][x] != 'P' && map[y][x] != 'B')
-				return (0);
+				return (1);
 			x++;
 		}
 		y++;
 	}
-	return (1);
+	return (0);
 }
 
 int	ft_check_map_strings(char **map)
@@ -43,12 +41,12 @@ int	ft_check_map_strings(char **map)
 	while (map[y])
 	{
 		if (ft_strlen(map[y]) != len)
-			return (0);
+			return (1);
 		y++;
 	}
 	if (y < 3)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 int	ft_check_map_walls(char **map)
@@ -59,16 +57,16 @@ int	ft_check_map_walls(char **map)
 	x = -1;
 	while (map[0][++x])
 		if (map[0][x] != '1')
-			return (0);
+			return (1);
 	y = -1;
 	while (map[++y])
 		if (map[y][0] != '1' || map[y][ft_strlen(map[y]) - 1] != '1')
-			return (0);
+			return (1);
 	x = -1;
 	while (map[y - 1][++x] != '1')
 		if (map[y - 1][x] != '1')
-			return (0);
-	return (1);
+			return (1);
+	return (0);
 }
 
 int	ft_check_map_characters(char **map, char c)
@@ -87,8 +85,8 @@ int	ft_check_map_characters(char **map, char c)
 				p++;
 	}
 	if (p < 1)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }
 
 int	ft_check_map_start_position(char **map)
@@ -107,6 +105,6 @@ int	ft_check_map_start_position(char **map)
 				p++;
 	}
 	if (p != 1)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }

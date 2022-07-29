@@ -29,11 +29,11 @@ int	ft_check_map_format(char	*map_format, char	*needed_format)
 
 int	ft_check_map_all(char **map)
 {
-	if (!ft_check_map_symbols(map) || !ft_check_map_strings(map) \
-	|| !ft_check_map_walls(map) || !ft_check_map_characters(map, 'C') \
-	|| !ft_check_map_characters(map, 'E') || !ft_check_map_start_position(map))
-		return (0);
-	return (1);
+	if (ft_check_map_symbols(map) || ft_check_map_strings(map) \
+	|| ft_check_map_walls(map) || ft_check_map_characters(map, 'C') \
+	|| ft_check_map_characters(map, 'E') || ft_check_map_start_position(map))
+		return (1);
+	return (0);
 }
 
 void	ft_check_open(t_game *game)

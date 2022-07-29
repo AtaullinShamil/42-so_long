@@ -31,7 +31,7 @@ static void	ft_parser(t_game *game, int argc, char **argv)
 	if (ft_check_map_format(argv[1], ".ber"))
 		ft_error(NULL);
 	game->map = ft_get_map(argv[1]);
-	if (!ft_check_map_all(game->map))
+	if (ft_check_map_all(game->map))
 		ft_error(NULL);
 }
 
