@@ -9,16 +9,14 @@
 # **************************************************************************** #
 
 NAME = so_long
-
-FILES = main.c map_read.c check_1.c check_2.c key_hook.c actions.c render.c exit.c enemy.c
-
 HEADER = so_long.h
 LIBFT = libft/libft.a
 MLX = mlx/libmlx.a
-
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -framework OpenGL -framework AppKit
+
+FILES = main.c map_read.c check_1.c check_2.c key_hook.c actions.c render.c exit.c enemy.c
 
 OBJ = $(FILES:.c=.o)
 
