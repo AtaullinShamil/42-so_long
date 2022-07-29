@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*   ft_memchr.c                                                              */
+/*   ft_lstsize.c                                                             */
 /*                                                                            */
 /*   By: Ataullin Shamil                                                      */
 /*                                                                            */
-/*   Created: 2021/10/14                                                      */
+/*   Created: 2021/11/08                                                      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_lstsize(t_list *lst)
 {
-	char	*str;
+	int	i;
 
-	str = (char *)s;
-	while (n--)
+	i = 0;
+	while (lst)
 	{
-		if (*str++ == (char)c)
-			return (str - 1);
+		lst = lst->next;
+		i++;
 	}
-	return (NULL);
+	return (i);
 }

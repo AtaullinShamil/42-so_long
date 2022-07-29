@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ntojamur <ntojamur@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 17:18:00 by ntojamur          #+#    #+#             */
-/*   Updated: 2021/11/09 19:00:43 by ntojamur         ###   ########.fr       */
+/*   ft_split.c                                                               */
+/*                                                                            */
+/*   By: Ataullin Shamil                                                      */
+/*                                                                            */
+/*   Created: 2021/10/21                                                      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	freedom(char **res, int words)
+static int	ft_free(char **res, int words)
 {
 	while (words--)
 		free(res[words]);
-	return (777);
+	return (0);
 }
 
-static int	schitalka(char const *s, char c)
+static int	ft_count_lines(char const *s, char c)
 {
 	int	i;
 	int	words;
@@ -36,7 +34,7 @@ static int	schitalka(char const *s, char c)
 	return (words);
 }
 
-static void	slovo(char *dst, char const *str, char c)
+static void	ft_words(char *dst, char const *str, char c)
 {
 	int	i;
 
@@ -49,7 +47,7 @@ static void	slovo(char *dst, char const *str, char c)
 	dst[i] = '\0';
 }
 
-static int	stroka(char **res, const char *s, char c)
+static int	ft_lines(char **res, const char *s, char c)
 {
 	int		i;
 	int		j;
@@ -68,13 +66,13 @@ static int	stroka(char **res, const char *s, char c)
 				j++;
 			res[word] = (char *)malloc(sizeof(char) * (j + 1));
 			if (!res[word])
-				return (freedom(res, word - 1));
-			slovo(res[word], s + i, c);
+				return (ft_free(res, word - 1));
+			ft_words(res[word], s + i, c);
 			i = i + j;
 			word++;
 		}
 	}
-	return (228);
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
@@ -84,29 +82,12 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	words = schitalka(s, c);
+	words = ft_count_lines(s, c);
 	res = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (NULL);
 	res[words] = NULL;
-	if (stroka(res, s, c) == 777)
+	if (ft_lines(res, s, c) == 0)
 		return (NULL);
 	return (res);
 }
-
-// int main()
-// {
-// 	char c = '.';
-// 	char str[] = "...123..1.1234...11...";
-// 	char **src;
-// 	int i = 0;
-
-// 	src = ft_split(str,c);
-// 	while (i < 5)
-// 	{
-// 		printf("%s\n", src[i]);
-// 		i++;
-// 	}
-
-// 	return 0;
-// }

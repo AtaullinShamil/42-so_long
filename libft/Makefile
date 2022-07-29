@@ -1,16 +1,17 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: shamil <shamil@student.42.fr>              +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/10/18 16:11:54 by ntojamur          #+#    #+#              #
-#    Updated: 2022/04/03 23:31:24 by shamil           ###   ########.fr        #
+#    Makefile                                                                  #
+#                                                                              #
+#    By: Ataullin Shamil                                                       #
+#                                                                              #
+#    Created: 2021/10/18                                                       #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+HEADER = libft.h
+CC = gcc
+FLAGS = -Wall -Werror -Wextra
 
 LIST =	ft_atoi.c\
 		ft_bzero.c\
@@ -49,13 +50,16 @@ LIST =	ft_atoi.c\
 
 LIST_B =	ft_lstadd_front.c\
 			ft_lstnew.c\
+			ft_lstsize.c\
+			ft_lstlast.c\
+			ft_lstadd_back.c\
+			ft_lstdelone.c\
+			ft_lstclear.c\
+			ft_lstiter.c\
+			ft_lstmap.c\
 
-
-OBJ = $(patsubst %.c, %.o, $(LIST))
-OBJ_B = $(patsubst %.c, %.o, $(LIST_B))
-
-HEADER = libft.h
-FLAGS = -Wall -Werror -Wextra
+OBJ = $(LIST:.c=.o)
+OBJ_B = $(LIST_B:.c=.o)
 
 all : $(NAME)
 
@@ -63,7 +67,7 @@ $(NAME) : $(OBJ)
 	ar rcs $(NAME) $?
 
 %.o : %.c $(HEADER) Makefile
-	gcc $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 bonus:
 	@make OBJ="$(OBJ_B)" all

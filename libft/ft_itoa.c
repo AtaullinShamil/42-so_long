@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ntojamur <ntojamur@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 19:54:54 by ntojamur          #+#    #+#             */
-/*   Updated: 2021/11/09 19:17:58 by ntojamur         ###   ########.fr       */
+/*   ft_itoa.c                                                                */
+/*                                                                            */
+/*   By: Ataullin Shamil                                                      */
+/*                                                                            */
+/*   Created: 2021/10/21                                                      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	sobig(long int n)
+static int	ft_size(long int n)
 {
 	size_t	len;
 
@@ -32,7 +30,7 @@ static int	sobig(long int n)
 	return (len);
 }
 
-static void	zapolnalka(char *str, long int n, int len)
+static void	ft_line(char *str, long int n, int len)
 {
 	str[len] = '\0';
 	if (n == 0)
@@ -57,11 +55,11 @@ char	*ft_itoa(int n)
 	long int	number;
 
 	number = n;
-	len = sobig(number);
+	len = ft_size(number);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	zapolnalka(str, number, len);
+	ft_line(str, number, len);
 	return (str);
 }
 //-2 147 483 648 --- 2 147 483 647

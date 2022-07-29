@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*   ft_memchr.c                                                              */
+/*   ft_lstadd_back.c                                                         */
 /*                                                                            */
 /*   By: Ataullin Shamil                                                      */
 /*                                                                            */
-/*   Created: 2021/10/14                                                      */
+/*   Created: 2021/11/08                                                      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	*str;
+	t_list	*last;
 
-	str = (char *)s;
-	while (n--)
+	if (!(lst))
+		return ;
+	if (!(*lst))
+		*lst = new;
+	else
 	{
-		if (*str++ == (char)c)
-			return (str - 1);
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-	return (NULL);
 }

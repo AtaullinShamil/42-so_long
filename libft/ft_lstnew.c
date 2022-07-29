@@ -1,12 +1,10 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ntojamur <ntojamur@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 20:18:46 by ntojamur          #+#    #+#             */
-/*   Updated: 2021/11/09 19:00:21 by ntojamur         ###   ########.fr       */
+/*   ft_lstnew.c                                                              */
+/*                                                                            */
+/*   By: Ataullin Shamil                                                      */
+/*                                                                            */
+/*   Created: 2021/11/08                                                      */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +12,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*minipig;
+	t_list	*begin_pointer;
 
-	minipig = (t_list *)malloc(sizeof(*minipig));
-	if (!minipig)
+	begin_pointer = (t_list *)malloc(sizeof(t_list));
+	if (!begin_pointer)
 		return (NULL);
-	minipig -> content = content;
-	minipig -> next = NULL;
-	return (minipig);
+	begin_pointer -> content = content;
+	begin_pointer -> next = NULL;
+	return (begin_pointer);
 }
