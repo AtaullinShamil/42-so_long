@@ -26,15 +26,15 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
+	char	**map;
+	int		width;
+	int		height;
 	t_img	player;
 	t_img	wall;
 	t_img	coin;
 	t_img	exit;
 	t_img	floor;
 	t_img	enemy;
-	int		width;
-	int		height;
-	char	**map;
 	int		flag_win;
 	int		flag_lose;
 	int		flag_open;
@@ -66,6 +66,7 @@ void	ft_draw_win(t_game *game);
 void	ft_print_steps(t_game *game);
 
 void	ft_error(char *str);
+void	ft_error_map(char **res);
 void	ft_free(char **res);
 int		ft_exit(char *str);
 
