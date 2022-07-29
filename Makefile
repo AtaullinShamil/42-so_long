@@ -16,7 +16,8 @@ HEADER = so_long.h
 LIBFT = libft/libft.a
 MLX = mlx/libmlx.a
 
-FLAGS = gcc -Wall -Wextra -Werror
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -framework OpenGL -framework AppKit
 
 OBJ = $(FILES:.c=.o)
@@ -24,10 +25,10 @@ OBJ = $(FILES:.c=.o)
 all : $(NAME) $(../libft/OBJ)
 
 %.o: %.c $(HEADER) Makefile
-	$(FLAGS) -o $@ -c $<
+	$(CC) $(FLAGS) -o $@ -c $<
 
 $(NAME) : $(OBJ) $(LIBFT) $(MLX) $(HEADER)
-	$(FLAGS) $(MLXFLAGS) $(OBJ) $(LIBFT) $(MLX) -o $(NAME)
+	$(CC) $(FLAGS) $(MLXFLAGS) $(OBJ) $(LIBFT) $(MLX) -o $(NAME)
 
 $(LIBFT): easy
 	$(MAKE) -C libft
