@@ -1,12 +1,10 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   check_1.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ntojamur <ntojamur@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 20:24:01 by shamil            #+#    #+#             */
-/*   Updated: 2022/04/04 14:42:08 by ntojamur         ###   ########.fr       */
+/*   check_1.c                                                                */
+/*                                                                            */
+/*   By: Ataullin Shamil                                                      */
+/*                                                                            */
+/*   Created: 022/04/02                                                       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +20,11 @@ int	ft_check_map_format(char	*map_format, char	*needed_format)
 	while (map_format[i])
 	{
 		if (map_format[i] != needed_format[j])
-			return (0);
+			return (1);
 		i++;
 		j++;
 	}
-	return (1);
+	return (0);
 }
 
 int	ft_check_map_all(char **map)
